@@ -8,7 +8,7 @@ Forked from nimmis/alpine-mariadb
 MariaDB is a community-developed fork of the MySQL relational database management system intended to remain free under the GNU GPL.
 
 
-Container based on ![Docker Hub; nimmis/alpine-micro](https://img.shields.io/badge/dockerhub-nimmis%2Falpine-micro-green.svg)](https://registry.hub.docker.com/u/nimmis/alpine-micro), a minimal os (8.5 Mb)  with working init process and syslog. For more information on how to set up services, please read the documentation for [nimmis/alpine-micro](https://registry.hub.docker.com/u/nimmis/alpine-micro). This container is about half the size of the official mariadb docker container.
+Container based on nimmis/alpine-micro, a minimal os (8.5 Mb)  with working init process and syslog. For more information on how to set up services, please read the documentation for [nimmis/alpine-micro](https://registry.hub.docker.com/u/nimmis/alpine-micro). This container is about half the size of the official mariadb docker container.
 
 ## Starting the container
 
@@ -63,6 +63,6 @@ creates a user with password defined with MYSQL_PASSWORD and full access to the 
 	-e MYSQL_USER=username
 
 ### MYSQL_PASSWORD
-The apssword for the user defined by MYSQL_USER
+The password for the user defined by MYSQL_USER
 
 	-e MYSQL_PASSWORD=donottell
