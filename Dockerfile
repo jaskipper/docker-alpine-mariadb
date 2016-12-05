@@ -1,6 +1,6 @@
 FROM nimmis/alpine-micro
 
-MAINTAINER nimmis <kjell.havneskold@gmail.com>
+MAINTAINER skipper <jason@skipperinnovations.com>
 
 COPY root/. /
 ENV LANG="en_US.UTF-8" \
@@ -12,4 +12,3 @@ RUN apk update && apk upgrade && \
     rm -rf /var/cache/apk/*
 
 VOLUME /data
-
