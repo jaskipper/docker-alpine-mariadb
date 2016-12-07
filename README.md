@@ -1,6 +1,7 @@
 ## MariaDB 10 server on Alpine
 
-![Docker Hub; jaskipper/alpine-mariadb](https://img.shields.io/badge/dockerhub-jaskipper%2Falpine-mariadb-green.svg)](https://registry.hub.docker.com/u/jaskipper/alpine-mariadb)
+[![](https://images.microbadger.com/badges/version/jaskipper/alpine-mariadb.svg)](http://microbadger.com/images/jaskipper/alpine-mariadb> “Get your own version badge on microbadger.com”)
+
 Forked from nimmis/alpine-mariadb
 
 ## What is MariaDB?

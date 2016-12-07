@@ -96,6 +96,17 @@ if [ ! -d /data/db/mysql/mysql ]; then
      echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE ;" | /usr/bin/mysql
   fi
 
+  if [ ! -z $WORDPRESS_DB_USER ]; then
+     echo "Creating user $WORDPRESS_DB_USER"
+     echo "CREATE USER '$WORDPRESS_DB_USER'@'%' IDENTIFIED BY '$WORDPRESS_DB_PASSWORD' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     echo "CREATE USER '$WORDPRESS_DB_USER'@'localhost' IDENTIFIED BY '$WORDPRESS_DB_PASSWORD' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     if [ ! -z $WORDPRESS_DB_NAME ]; then
+       echo "Granting access for $WORDPRESS_DB_USER to $WORDPRESS_DB_NAME"
+       echo "GRANT ALL ON $WORDPRESS_DB_NAME.* TO '$WORDPRESS_DB_USER'@'%' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+       echo "GRANT ALL ON $WORDPRESS_DB_NAME.* TO '$WORDPRESS_DB_USER'@'localhost' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     fi
+  fi
+
   if [ ! -z $MYSQL_USER ]; then
      echo "Creating user $MYSQL_USER"
      echo "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
@@ -104,6 +115,28 @@ if [ ! -d /data/db/mysql/mysql ]; then
        echo "Granting access for $MYSQL_USER to $MYSQL_DATABASE"
        echo "GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
        echo "GRANT ALL ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     fi
+  fi
+
+  if [ ! -z $MYSQL_USER_2 ]; then
+     echo "Creating user $MYSQL_USER_2"
+     echo "CREATE USER '$MYSQL_USER_2'@'%' IDENTIFIED BY '$MYSQL_PASSWORD_2' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     echo "CREATE USER '$MYSQL_USER_2'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD_2' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     if [ ! -z $MYSQL_DATABASE_2 ]; then
+       echo "Granting access for $MYSQL_USER_2 to $MYSQL_DATABASE_2"
+       echo "GRANT ALL ON $MYSQL_DATABASE_2.* TO '$MYSQL_USER_2'@'%' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+       echo "GRANT ALL ON $MYSQL_DATABASE_2.* TO '$MYSQL_USER_2'@'localhost' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     fi
+  fi
+
+  if [ ! -z $MYSQL_USER_3 ]; then
+     echo "Creating user $MYSQL_USER_3"
+     echo "CREATE USER '$MYSQL_USER_3'@'%' IDENTIFIED BY '$MYSQL_PASSWORD_3' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     echo "CREATE USER '$MYSQL_USER_3'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD_3' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+     if [ ! -z $MYSQL_DATABASE_3 ]; then
+       echo "Granting access for $MYSQL_USER_3 to $MYSQL_DATABASE_3"
+       echo "GRANT ALL ON $MYSQL_DATABASE_3.* TO '$MYSQL_USER_3'@'%' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
+       echo "GRANT ALL ON $MYSQL_DATABASE_3.* TO '$MYSQL_USER_3'@'localhost' ;FLUSH PRIVILEGES;" | /usr/bin/mysql
      fi
   fi
 
